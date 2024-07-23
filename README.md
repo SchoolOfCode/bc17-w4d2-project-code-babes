@@ -1,7 +1,7 @@
 Getting Started
 It's time to get started with your "Back End Project".
 
-Please click the link below, accept the Github Classroom assignment and work on your project in that repository. 
+Please click the link below, accept the Github Classroom assignment and work on your project in that repository.
 
 Once you've got the repository set up we would recommend that the next thing you do is very carefully read over the project. Make sure you really understand what you're being asked to build before you try to build it. It sounds obvious but it's very easy to get wires crossed.
 
@@ -35,20 +35,18 @@ As Klara, a Full Stack Engineer at TrackIt I want to be able to use a framework 
 
 As John, a project manager at TrackIt I want our engineers to use modern frameworks that that they can ship features quickly and safely.
 
-
 Acceptance Criteria:
 
 Given I am a new developer joining the team,
 When I clone down the backend repo,
 Then I should see a clear README that details how to install and run the application using Node through a command line. The application is an Express API.
 
-
 Given I am a developer who has just followed the instructions to run and install the application (our Express APP),
 When I make a GET request to “http://localhost:3000/”,
 Then I should get back a response with status code of 200 and text saying “Hello World!”
 Then I should also see that the Node API has also logged the request in the terminal (console.log)
 
-User Story 2: Add basic security standards using Helmet 
+User Story 2: Add basic security standards using Helmet
 
 Description:
 
@@ -86,22 +84,21 @@ Then the the request should succeed, responding with the correct status code and
 // response object
 ​
 {
-    data: [
-        { }, // activity object
-        { }, // activity object
-        { } // activity object
-    ]
+data: [
+{ }, // activity object
+{ }, // activity object
+{ } // activity object
+]
 }
 ​
 // each activity object should look like
 ​
 {
-    "id": "54321234", // UUID
-    "activity_submitted": "1719486190058", // simple Epoc timestamp (Date.now() in JS)
-    "activity_type": "run", // choose some standard types
-    "activity_duration": "30", // choose standard unit type (minutes probably)
+"id": "54321234", // UUID
+"activity_submitted": "1719486190058", // simple Epoc timestamp (Date.now() in JS)
+"activity_type": "run", // choose some standard types
+"activity_duration": "30", // choose standard unit type (minutes probably)
 }
-
 
 User Story: Implement functionality to POST a new activity.
 
@@ -120,21 +117,21 @@ Then the the request should succeed, responding with the correct status code and
 
 // request object - new user activity
 {
-    "activity_type": "run",
-    "activity_duration": "30",
+"activity_type": "run",
+"activity_duration": "30",
 }
 ​
-// save the newly sumbitted activity in activities.JSON 
+// save the newly sumbitted activity in activities.JSON
 ​
 [
-    {}, // exisitng activity
-    {}, // exisitng activity
-    {
-        "id": "54321234", // Add a UUID
-        "date": "1719486190058", // Add the date time stamp
-        "activity_type": "run",
-        "activity_duration": "30",
-    }
+{}, // exisitng activity
+{}, // exisitng activity
+{
+"id": "54321234", // Add a UUID
+"date": "1719486190058", // Add the date time stamp
+"activity_type": "run",
+"activity_duration": "30",
+}
 ]
 
 Given I am a developer who has made an invalid POST request by missing a required request body field like, activity_type or activity_duration,
@@ -158,28 +155,27 @@ Then the the request should succeed, responding with the correct status code and
 
 // request object - updated user activity that we send in the PUT request
 {
-    "id": "54321234", // id of an exisiting activity
-    "activity_type": "cycle",
-    "activity_duration": "60",
+"id": "54321234", // id of an exisiting activity
+"activity_type": "cycle",
+"activity_duration": "60",
 }
 ​
-// save the newly updated activity in activities.JSON as 
+// save the newly updated activity in activities.JSON as
 ​
 [
-    {}, // exisitng activity
-    {}, // exisitng activity
-    {
-        "id": "54321234",
-        "activity_submitted": "1719486190058", // Update time stmap or leave it the same
-        "activity_type": "cycle",
-        "activity_duration": "60",
-    }
+{}, // exisitng activity
+{}, // exisitng activity
+{
+"id": "54321234",
+"activity_submitted": "1719486190058", // Update time stmap or leave it the same
+"activity_type": "cycle",
+"activity_duration": "60",
+}
 ]
 
 Given I am a developer who has made an invalid PUT request by specifying an id for a activity that does not exist,
 When I inspect the API response,
 Then the request should fail, responding with the correct status code and a clear error message (response.error).
-
 
 User Story: Implement functionality to DELETE an activity.
 
