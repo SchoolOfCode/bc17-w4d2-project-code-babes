@@ -1,0 +1,25 @@
+# TrackIt Express API
+
+## Installation
+
+To install and run the application, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone <repository_url>
+    cd <repository_directory>
+    ```
+
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Start the application:
+    ```bash
+    node app.js
+    ```
+
+4. Open your browser or use a tool like curl or Postman to make a GET request to `http://localhost:3000/`.
+
+You should see a response with status code 200 and the text "Hello World!". The server will also log the request to the terminal.

@@ -1,0 +1,15 @@
+{
+  "name": "bc17-w4d2-project-code-babes",
+  "version": "1.0.0",
+  "description": "Getting Started It's time to get started with your \"Back End Project\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
