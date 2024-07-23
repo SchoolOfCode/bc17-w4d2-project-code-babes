@@ -65,6 +65,7 @@ Then I should see Helmet configured as one of the first pieces of middleware.
 Given I am a developer who makes a request to the Activity API,
 When I inspect the response headers,
 Then I should not be able to see the response header “X-Powered-By: Express”.
+
 Epic: Allow users to get and add activities
 User Story: Implement functionality to GET all activities for a particular user
 

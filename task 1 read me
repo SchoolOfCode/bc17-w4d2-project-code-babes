@@ -5,20 +5,23 @@
 To install and run the application, follow these steps:
 
 1. Clone the repository:
-    ```bash
-    git clone <repository_url>
-    cd <repository_directory>
-    ```
+
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
 
 2. Install dependencies:
-    ```bash
-    npm install
-    ```
+
+   ```bash
+   npm install
+   ```
 
 3. Start the application:
-    ```bash
-    node app.js
-    ```
+
+   ```bash
+   node app.js
+   ```
 
 4. Open your browser or use a tool like curl or Postman to make a GET request to `http://localhost:3000/`.
 
