@@ -10,6 +10,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
+
 // Use Helmet as the first middleware
 app.use(helmet());
 
@@ -17,15 +19,6 @@ app.use(helmet());
 app.get("/", (req, res) => {
   res.status(200).send("Hello World!");
 });
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
-
-
-
-// User story 3
 
 const activities = [
   {
@@ -48,30 +41,62 @@ const activities = [
   }
 ];
 
-
-
 app.get("/activities", (req, res) => {
-  res.status(200).json({data: activities});
+  try {
+    res.status(200).json({
+      success: true,
+      payload: activities,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      payload: error.message,
+    });
+  }
 });
 
 
 
 
-app.get("/activities",  (req, res) => {
+
+
+
+// POST a new activity
+
+app.post('/activities', (req, res) => {
+
+  const newActivity = req.body.newActivity;
   
-  try {
-
-    res.status(200).json({
-      success: true,
-      payload: response.data,
+  if (!newActivity) {
+    res.status(400).json({
+      "error": true,
+      "data": null
     });
-
-  } catch (error) {
-
-    res.status(500).json({
-      success: false,
-      payload: error.message,
-    })
   }
-})
+
+
+  const activity = {
+    ...newActivity,
+    id: 12345,
+    activity_submitted: Date.now(),
+  }
+
+
+  activities.push(activity)
+  console.log(activity)
+
+  
+  res.status(201).json({
+    "error": false,
+    "data": activity
+  })
+
+});
+
+
+
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}/`);
+});
   
