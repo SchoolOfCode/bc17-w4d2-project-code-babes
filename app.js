@@ -13,12 +13,6 @@ app.use((req, res, next) => {
 // Use Helmet as the first middleware
 app.use(helmet());
 
-<<<<<<< HEAD
-=======
-// Explicitly disable 'X-Powered-By' header
-app.disable("x-powered-by");
-
->>>>>>> 535b35ab5e304c9c06493a018b96e719734a9a5b
 // Define a simple route
 app.get("/", (req, res) => {
   res.status(200).send("Hello World!");
@@ -29,21 +23,53 @@ app.listen(port, () => {
 });
 
 
-fetch('http://localhost:3000')
-  .then(response => {
-    // Access the headers
-    for (let pair of response.headers.entries()) {
-      console.log(pair[0] + ": " + pair[1]);
-    }
 
-    // Process the response body if needed
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
 
+// User story 3
+
+const activities = [
+  {
+    "id": "54321234",
+    "activity_submitted": Date.now().toString(),
+    "activity_type": "run",
+    "activity_duration": "30"
+  },
+  {
+    "id": "12345678",
+    "activity_submitted": Date.now().toString(),
+    "activity_type": "walk",
+    "activity_duration": "45"
+  },
+  {
+    "id": "87654321",
+    "activity_submitted": Date.now().toString(),
+    "activity_type": "bike",
+    "activity_duration": "60"
+  }
+];
+
+
+
+
+app.get("/activities", (req, res) => {
+  res.status(200).json({data: activities});
+});
+
+app.get("/activities",  (req, res) => {
+  
+  try {
+
+    res.status(200).json({
+      success: true,
+      payload: response.data,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      payload: error.message,
+    })
+  }
+})
   
