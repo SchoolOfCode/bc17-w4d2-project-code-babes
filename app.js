@@ -50,10 +50,12 @@ const activities = [
 
 
 
-
 app.get("/activities", (req, res) => {
   res.status(200).json({data: activities});
 });
+
+
+
 
 app.get("/activities",  (req, res) => {
   
