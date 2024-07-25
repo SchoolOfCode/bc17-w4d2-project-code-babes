@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   res.status(200).send("Hello World!");
 });
 
-const activities = [
+let activities = [
   {
     "id": "54321234",
     "activity_submitted": Date.now().toString(),
@@ -41,6 +41,9 @@ const activities = [
   }
 ];
 
+
+// GET request
+
 app.get("/activities", (req, res) => {
   try {
     res.status(200).json({
@@ -54,9 +57,6 @@ app.get("/activities", (req, res) => {
     });
   }
 });
-
-
-
 
 
 
@@ -92,6 +92,50 @@ app.post('/activities', (req, res) => {
   })
 
 });
+
+
+
+
+
+// PUT request
+
+app.put("/activities/:id", (req, res) => {
+
+  const { id } = req.params;
+  const { activity_type, activity_duration } = req.body;
+
+  const activityIndex = activities.findIndex(activity => activity.id === id);
+  
+  if (activityIndex === -1) {
+    res.status(400).json({
+      "error": true,
+      "data": null
+    });
+  }
+
+
+  const updatedActivity = {
+    ...activities[activityIndex],
+    activity_type,
+    activity_duration,
+    activity_submitted: Date.now(),
+  }
+
+  activities[activityIndex] = updatedActivity;
+  
+  // activities.push(activity)
+  // console.log(activity)
+
+  
+  res.status(201).json({
+    "error": false,
+    "data": activity
+  })
+
+});
+
+
+
 
 
 
