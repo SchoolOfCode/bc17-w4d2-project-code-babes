@@ -4,9 +4,9 @@ const helmet = require("helmet");
 const app = express();
 const port = 8080;
 
-import { activities } from "./activities.js";
+// import { activities } from "./activities.js";
 
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 // Middleware to log request
 app.use((req, res, next) => {
@@ -24,26 +24,26 @@ app.get("/", (req, res) => {
   res.status(200).send("Hello World!");
 });
 
-// let activities = [
-//   {
-//     "id": "54321234",
-//     "activity_submitted": Date.now().toString(),
-//     "activity_type": "run",
-//     "activity_duration": "30"
-//   },
-//   {
-//     "id": "12345678",
-//     "activity_submitted": Date.now().toString(),
-//     "activity_type": "walk",
-//     "activity_duration": "45"
-//   },
-//   {
-//     "id": "87654321",
-//     "activity_submitted": Date.now().toString(),
-//     "activity_type": "bike",
-//     "activity_duration": "60"
-//   }
-// ];
+let activities = [
+  {
+    "id": "54321234",
+    "activity_submitted": Date.now().toString(),
+    "activity_type": "run",
+    "activity_duration": "30"
+  },
+  {
+    "id": "12345678",
+    "activity_submitted": Date.now().toString(),
+    "activity_type": "walk",
+    "activity_duration": "45"
+  },
+  {
+    "id": "87654321",
+    "activity_submitted": Date.now().toString(),
+    "activity_type": "bike",
+    "activity_duration": "60"
+  }
+];
 
 
 // GET request
@@ -78,18 +78,15 @@ app.post('/activities', (req, res) => {
     });
   }
 
-
   const activity = {
     ...newActivity,
     id: uuidv4,
     activity_submitted: Date.now(),
   }
 
-
   activities.push(activity)
   console.log(activity)
 
-  
   res.status(201).json({
     "error": false,
     "data": activity
