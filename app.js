@@ -1,3 +1,7 @@
+// express: Importing the Express framework which is used to build web servers in Node.js.
+// helmet: Importing Helmet, which helps secure Express apps by setting various HTTP headers.
+// uuidv4: Importing the UUID library to generate unique IDs for activities.
+
 import express from 'express'; 
 import helmet from 'helmet';
 import { v4 as uuidv4 } from 'uuid';
@@ -58,9 +62,9 @@ app.get("/activities", (req, res) => {
   }
 });
 
-// Function to create a new activity
+
 const createActivity = async (newActivity) => {
-  // Assuming you want to add the new activity to the activities array
+
   newActivity.id = Date.now().toString();
   newActivity.activity_submitted = Date.now().toString();
   activities.push(newActivity);
@@ -69,10 +73,10 @@ const createActivity = async (newActivity) => {
 
 // POST a new activity
 app.post("/activities", async (req, res) => {
-  // get the new activity out of the request body
+
   const newActivity = req.body;
 
-  // check that the client has actually sent the new activity 👀
+
   if (!newActivity) {
     return res.status(400).json({
       error: true,
@@ -95,7 +99,7 @@ app.post("/activities", async (req, res) => {
   }
 });
 
-// PUT request to update an existing activity
+// PUT request 
 app.put("/activities/:id", (req, res) => {
   const { id } = req.params;
   const { activity_type, activity_duration } = req.body;
