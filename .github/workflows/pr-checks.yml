@@ -1,0 +1,31 @@
+name: PreCommit Checks Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Lint
+        run: |
+          docker build -t codebabes .
+          docker run --rm codebabes npm run lint
+
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Format
+        run: |
+          docker build -t codebabes .
+          docker run --rm codebabes npm run format
