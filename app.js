@@ -63,6 +63,7 @@ app.get("/activities", (req, res) => {
 });
 
 
+
 const createActivity = async (newActivity) => {
 
   newActivity.id = Date.now().toString();
