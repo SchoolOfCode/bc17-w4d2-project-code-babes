@@ -3,7 +3,6 @@ name: PreCommit Checks Workflow
 on:
   pull_request:
     branches:
-      - main
       - test-branch
 
 jobs:
